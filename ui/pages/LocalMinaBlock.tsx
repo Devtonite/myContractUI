@@ -170,23 +170,13 @@ export default function LocalMinaBlock({}: Props) {
   let mainContent;
   if (state.hasBeenSetup && state.accountExists) {
     mainContent = 
-    <div>
+    <div className={styles.mina}>
       <button onClick={onIncrementTxn} disabled={state.creatingTransaction}> Increment Value </button>
+      <div>{ state.currentNum!.toString() }</div>
       <button onClick={onDecrementTxn} disabled={state.creatingTransaction}> Decrement Value </button>
-      <div> Current Number in zkApp: { state.currentNum!.toString() } </div>
       <button onClick={onRefreshCurrentNum}> Get Latest State </button>
     </div>
   }
 
-
-
-
-  return (
-    <div>
-      <div>
-        <div>Local Mina Blockchain:</div>
-        <div className={styles.grid}>{mainContent}</div>
-      </div>
-    </div>
-  )
+  return (<div>{mainContent}</div>)
 }
